@@ -5,7 +5,7 @@ public class SelectionSort {
         int[] intArray = {5, 7, 1, -9, 6};
 
         int lastUnsortedIndex = intArray.length - 1;
-        int traverseIndex = 0;
+        int traverseIndex;
         int largestIndex = 0;
 
         for (int i = 0; i <= intArray.length; i++){
@@ -15,12 +15,12 @@ public class SelectionSort {
             }
             if (traverseIndex == lastUnsortedIndex){
                 swapElements(intArray, largestIndex, lastUnsortedIndex);
-                lastUnsortedIndex -= 1;
+                lastUnsortedIndex -= 1; // decrementing because largest element has been swapped at the lastUnsortedIndex
                 if (lastUnsortedIndex == 0){
                     break;
                 }
                 i = -1;
-                largestIndex = 0;
+                largestIndex = 0; // again assign value 0 because we want to start from the starting index of the array
             }
         }
 
