@@ -7,13 +7,13 @@ public class InsertionSort {
         /*
         first we will traverse the intArray, we will go from left to right in our array. Here we will assign the
         firstUnsortedIndex to value 1 because we are considering our intArray to be two types of array, first
-        an unsorted array which has its starting position 1 and a sorted array of just element starting at
+        an unsorted array which has its starting position 1 and a sorted array of just one element starting at
         position 0
          */
         for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.length; firstUnsortedIndex++) {
             /*
             our newElement will always be the one which is at the firstUnsortedIndex so that we can check if that
-            element can be inserted for our sortedArray
+            element can be inserted into our sortedArray
              */
             int newElement = intArray[firstUnsortedIndex];
             /*
