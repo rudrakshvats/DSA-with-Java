@@ -3,6 +3,10 @@ package Arrays;
 import java.util.Scanner;
 
 public class MaxElementArray {
+    /**
+     * Program to return the maximum element in an integer array
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the size of the array");
