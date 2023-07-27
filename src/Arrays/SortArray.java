@@ -16,6 +16,7 @@ public class SortArray {
             intArray[i] = scanner.nextInt();
         }
         System.out.println("Sorted Array: " + Arrays.toString(sortTechnique1(intArray)));
+        System.out.println("Sorted Array: " + Arrays.toString(sortTechnique2(intArray)));
     }
 
     /**
@@ -43,6 +44,41 @@ public class SortArray {
              */
             if (b == highestUnsortedIndex) {
                 highestUnsortedIndex -= 1;
+                i = -1;
+            }
+        }
+
+        return intArray;
+    }
+
+    /**
+     * In this sort technqiue, we take three indices first unsortedHighestIndex,
+     * second traverseIndex and third largestIndex. In every pass we will assume
+     * that the element at index 0 is the highest element and then check if that
+     * element is greater than the next index element, if yes then we will swap
+     * both of them until we reach the front of the array. After reaching the front
+     * of the array we will complete our first pass and then largest element is
+     * at the front of the array. Then reassign the largestIndex to 0, and
+     * decrement the unsortedHighestIndex value by 1
+     * @param intArray
+     * @return
+     */
+
+    private static Integer[] sortTechnique2(Integer[] intArray) {
+        int unsortedHighestIndex = intArray.length - 1;
+        int traverseIndex;
+        int largestElementIndex = 0;
+
+        for (int i = 0; i < unsortedHighestIndex; i++) {
+            traverseIndex = i + 1;
+            if (intArray[largestElementIndex] > intArray[traverseIndex]) {
+                swapElements(intArray, largestElementIndex, traverseIndex);
+                largestElementIndex = traverseIndex;
+            }
+
+            if (traverseIndex == unsortedHighestIndex) {
+                largestElementIndex = 0;
+                unsortedHighestIndex -= 1;
                 i = -1;
             }
         }
