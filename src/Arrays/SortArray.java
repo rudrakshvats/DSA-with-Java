@@ -15,8 +15,9 @@ public class SortArray {
         for (int i = 0; i < intArray.length; i++) {
             intArray[i] = scanner.nextInt();
         }
-        System.out.println("Sorted Array: " + Arrays.toString(sortTechnique1(intArray)));
+        //System.out.println("Sorted Array: " + Arrays.toString(sortTechnique1(intArray)));
         System.out.println("Sorted Array: " + Arrays.toString(sortTechnique2(intArray)));
+        //System.out.println("Sorted Array: " + Arrays.toString(sortTechnique3(intArray)));
     }
 
     /**
@@ -83,6 +84,19 @@ public class SortArray {
             }
         }
 
+        return intArray;
+    }
+
+    private static Integer[] sortTechnique3(Integer[] intArray) {
+        int temporaryVariable;
+        int unsortedLowestIndex = 0;
+        for (int i = unsortedLowestIndex; i < intArray.length - 1; i++) {
+            temporaryVariable = intArray[unsortedLowestIndex + i];
+            if (intArray[unsortedLowestIndex] > intArray[temporaryVariable]) {
+                intArray[i] = intArray[i + 1];
+                intArray[unsortedLowestIndex] = temporaryVariable;
+            }
+        }
         return intArray;
     }
 

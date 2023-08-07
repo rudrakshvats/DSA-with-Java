@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
     public static void main(String[] args){
-        int[] intArray = {5, 10, -5, 9, 7 ,20};
+        int[] intArray = {4, 1, 3, 9, 7};
 
         int unsortedHighestIndex = intArray.length - 1;
         int initialIndex = 0;
@@ -17,8 +17,14 @@ public class BubbleSort {
             if (unsortedHighestIndex == initialIndex){
                 unsortedHighestIndex -= 1;
                 i = -1;
+                initialIndex = 0;
             }
         }
+
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.print(intArray[i] + " ");
+        }
+
 
         System.out.println("Sorted array: " + Arrays.toString(intArray));
     }
