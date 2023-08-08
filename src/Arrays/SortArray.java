@@ -53,50 +53,76 @@ public class SortArray {
     }
 
     /**
-     * In this sort technqiue, we take three indices first unsortedHighestIndex,
-     * second traverseIndex and third largestIndex. In every pass we will assume
-     * that the element at index 0 is the highest element and then check if that
-     * element is greater than the next index element, if yes then we will swap
-     * both of them until we reach the front of the array. After reaching the front
-     * of the array we will complete our first pass and then largest element is
-     * at the front of the array. Then reassign the largestIndex to 0, and
-     * decrement the unsortedHighestIndex value by 1
+     * In this sorting technique, we will first iterate the loop from left to right, in the first iteration we will
+     * assume that the firstElement is the lowestNumber and the index 0 is the lowestNumberIndex, now within each
+     * iteration we will again run a loop to identify if there is any other element lower than the lowestNumber and if
+     * we found any then we will consider that as lowestElement and the index at which the element is found will be
+     * considered as lowestNumberIndex, after this inner loop is executed then we will swap lowestNumber with element
+     * in outer loop.
      * @param intArray
      * @return
      */
 
     private static Integer[] sortTechnique2(Integer[] intArray) {
-        int unsortedHighestIndex = intArray.length - 1;
-        int traverseIndex;
-        int largestElementIndex = 0;
-
-        for (int i = 0; i < unsortedHighestIndex; i++) {
-            traverseIndex = i + 1;
-            if (intArray[largestElementIndex] > intArray[traverseIndex]) {
-                swapElements(intArray, largestElementIndex, traverseIndex);
-                largestElementIndex = traverseIndex;
+        for (int i = 0; i < intArray.length - 1; i++) {
+            int lowestNumber = intArray[i];
+            int lowestNumberIndex = i;
+            for (int j = i + 1; j < intArray.length; j++) {
+                if (intArray[j] < lowestNumber) {
+                    lowestNumber = intArray[j];
+                    lowestNumberIndex = j;
+                }
             }
-
-            if (traverseIndex == unsortedHighestIndex) {
-                largestElementIndex = 0;
-                unsortedHighestIndex -= 1;
-                i = -1;
-            }
+            swapElements(intArray, i, lowestNumberIndex);
         }
 
         return intArray;
     }
 
+    /**
+     * In this sorting technique, our array will be traversed from left to right. First we will divide our array into
+     * two parts: sorted array and unsorted array. The sorted array will always be at index 0 so consider that at the
+     * beginning our array is sorted at index 0 and the unsorted array index starts from 1. Traverse through the
+     * unsorted index and check if the element at unsortedLowestIndex 1 is less than array at sortedHighestIndex 0.
+     * If yes then we shift the element at sortedHighestIndex to unsortedLowestIndex and insert the element at
+     * sortedHighestIndex and then move to the next element to the right.
+     * @param intArray
+     * @return
+     */
     private static Integer[] sortTechnique3(Integer[] intArray) {
-        int temporaryVariable;
-        int unsortedLowestIndex = 0;
-        for (int i = unsortedLowestIndex; i < intArray.length - 1; i++) {
-            temporaryVariable = intArray[unsortedLowestIndex + i];
-            if (intArray[unsortedLowestIndex] > intArray[temporaryVariable]) {
-                intArray[i] = intArray[i + 1];
-                intArray[unsortedLowestIndex] = temporaryVariable;
+        /*
+        this loop is for traversing our intArray from left to right, and it is starting from index 1 because we consider
+        that the first element of our array is sorted before our first iteration.
+         */
+        for (int i = 1; i < intArray.length; i++) {
+            int nextElement = intArray[i];
+            /*
+            consider a variable j which will always be considered the element to the left of the element in traversal
+            because we will compare our nextElement with element at index j and then shift if j is greater than equal
+            to 0 and value of element at j is greater than nextElement
+             */
+            int j = i - 1;
+
+            /*
+            run another loop which will be used to compare the elements to the left of the nextElement and shift if
+            the nextElement is greater than element at j.
+             */
+            while (j >= 0 && intArray[j] > nextElement) {
+                /*
+                shift the element to the right
+                 */
+                intArray[j + 1] = intArray[j];
+                /*
+                after shifting, make sure to decrement j so that we can traverse to the back of the array till index 0
+                 */
+                j--;
             }
+            /*
+            index j will now be at position where our nextElement needs to be inserted.
+             */
+            intArray[j + 1] = nextElement;
         }
+
         return intArray;
     }
 
