@@ -129,7 +129,7 @@ public class SortArray {
 
     private static Integer[] swapTechnique4(Integer[] intArray) {
         for (int gap = intArray.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < intArray.length - 1; i++) {
+            for (int i = gap; i < intArray.length; i++) {
                 int newElement = intArray[i];
                 int j = i;
                 while (j >= gap && intArray[j - gap] > newElement) {
