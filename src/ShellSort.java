@@ -5,7 +5,7 @@ public class ShellSort {
         Integer[] intArray = {20, 35, -15, 7, 55, 1, -22};
 
         /*
-        loop for initialising and using gap
+        loop for initialising and using gap  value
          */
         for (int gap = intArray.length / 2; gap > 0; gap /= 2) {
             /*
@@ -13,11 +13,11 @@ public class ShellSort {
              */
             for (int i = gap; i < intArray.length; i++) {
                 /*
-                put the element at gap element inside variable newElement
+                put the element at gap value index inside variable newElement
                  */
                 int newElement = intArray[i];
                 /*
-                j will be used to traverse the array until gap value reaches 0
+                j will be used to traverse the array until it is greater than equal to gap value
                  */
                 int j = i;
 
