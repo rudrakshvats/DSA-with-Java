@@ -16,8 +16,9 @@ public class SortArray {
             intArray[i] = scanner.nextInt();
         }
         //System.out.println("Sorted Array: " + Arrays.toString(sortTechnique1(intArray)));
-        System.out.println("Sorted Array: " + Arrays.toString(sortTechnique2(intArray)));
+        //System.out.println("Sorted Array: " + Arrays.toString(sortTechnique2(intArray)));
         //System.out.println("Sorted Array: " + Arrays.toString(sortTechnique3(intArray)));
+        System.out.println("Sorted Array: " + Arrays.toString(swapTechnique4(intArray)));
     }
 
     /**
@@ -121,6 +122,23 @@ public class SortArray {
             index j will now be at position where our nextElement needs to be inserted.
              */
             intArray[j + 1] = nextElement;
+        }
+
+        return intArray;
+    }
+
+    private static Integer[] swapTechnique4(Integer[] intArray) {
+        for (int gap = intArray.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < intArray.length - 1; i++) {
+                int newElement = intArray[i];
+                int j = i;
+                while (j >= gap && intArray[j - gap] > newElement) {
+                    intArray[j] = intArray[j - gap];
+                    j -= gap;
+                }
+
+                intArray[j] = newElement;
+            }
         }
 
         return intArray;
