@@ -2,15 +2,15 @@ package DSAAlgoPrep;
 
 import java.util.Scanner;
 
-public class One {
+public class Four {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int age = scanner.nextInt();
-        if (age >= 18) {
-            System.out.println("eligible");
+        int number = scanner.nextInt();
+        if (number % 2 == 0) {
+            System.out.println("even");
         }
         else {
-            System.out.println("not eligible");
+            System.out.println("odd");
         }
     }
 }
