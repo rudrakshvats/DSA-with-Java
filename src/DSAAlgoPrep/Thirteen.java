@@ -14,13 +14,13 @@ public class Thirteen {
                 System.out.print("\t");
             }
             for (int j = 1; j <= prints; j++) {
-                if (j <= number / 2) {
+                System.out.print(numberToPrint + "\t");
+                if (j < (number / 2) + 1) {
                     numberToPrint += 1;
                 }
                 else {
                     numberToPrint -= 1;
                 }
-                System.out.print(numberToPrint + "\t");
             }
             if (i <= number / 2) {
                 spaces -= 1;
