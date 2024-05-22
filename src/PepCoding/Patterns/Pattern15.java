@@ -4,33 +4,38 @@ import java.util.Scanner;
 
 public class Pattern15 {
     public static void main(String[] args) {
-        System.out.print("Enter a number to print the pattern: ");
-        int n = new Scanner(System.in).nextInt();
-        int spaces = n / 2;
-        int prints = 1;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= spaces; j++) {
-                System.out.print("\t");
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+
+        int stars = 1, spaces = n/2, val = 1;
+        for(int i=1; i<=n; i++)
+        {
+            int temp = val;
+
+            for(int j=1; j<=spaces; j++)
+                System.out.print("	");
+
+            for(int j=1; j<=stars; j++)
+            {
+                System.out.print(temp + "	");
+                if(j <= stars/2)
+                    temp++;
+                else temp--;
             }
-            int val = i;
-            for (int j = 1; j <= prints; j++) {
-                System.out.print(val + "\t");
-                if (i < n / 2) {
-                    val += 1;
-                }
-                else {
-                    val -= 1;
-                }
+
+            System.out.println();
+            if(i <= n/2)
+            {
+                stars += 2;
+                spaces--;
+                val ++;
             }
-            if (i <= n / 2) {
-                spaces -= 1;
-                prints += 2;
+            else
+            {
+                stars -= 2;
+                spaces++;
+                val --;
             }
-            else {
-                spaces += 1;
-                prints -= 2;
-            }
-            System.out.print("\n");
         }
     }
 }
