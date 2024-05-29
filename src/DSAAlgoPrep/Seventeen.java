@@ -10,6 +10,12 @@ public class Seventeen {
     }
 
     private static Integer getSquareRoot(Integer number) {
+        if (number == 0) {
+            return 0;
+        }
+        if (number == 1) {
+            return 1;
+        }
         for (int i = 1; i <= number; i++) {
             if (number / i == i) {
                 return i;
