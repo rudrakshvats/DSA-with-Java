@@ -7,20 +7,23 @@ public class Nine {
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number == 0 || number == 1) {
-            System.out.println("not prime");
+            System.out.println("Not Prime");
         }
         else if (number < 0) {
-            System.out.println("not prime");
+            System.out.println("Not Prime");
         }
         else {
-            if (number == 2 || number == 3) {
-                System.out.println("prime");
+            boolean isPrime = false;
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    isPrime = true;
+                }
             }
-            else if (number % 2 != 0 && number % 3 != 0) {
-                System.out.println("prime");
+            if (isPrime) {
+                System.out.println("Not Prime");
             }
             else {
-                System.out.println("not prime");
+                System.out.println("Prime");
             }
         }
     }
