@@ -20,7 +20,7 @@ public class QuickSort {
         int pivot = intArray[highIndex];
 
         int leftPointer = lowIndex;
-        int rightPointer = highIndex;
+        int rightPointer = highIndex - 1;
 
         while (leftPointer < rightPointer) {
             while (leftPointer <= pivot && leftPointer < rightPointer) {
@@ -34,7 +34,7 @@ public class QuickSort {
 
         swap(intArray, leftPointer, highIndex);
 
-        quickSort(intArray, 0, leftPointer - 1);
+        quickSort(intArray, lowIndex, leftPointer - 1);
         quickSort(intArray, lowIndex + 1, highIndex);
     }
 
