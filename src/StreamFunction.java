@@ -10,6 +10,14 @@ public class StreamFunction {
         employees.add(new Employee("Shishupal", 310185, "IT"));
         employees.add(new Employee("Ramdev", 310186, "Fraud"));
         employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.toList())).entrySet().stream().forEach(x -> System.out.println(x.getKey() + " - " + x.getValue().size()));
+        /*
+        Now suppose we want to get only string parameters as a list like getting only names of employees then we can use the following tables
+         */
+        List<String> names = employees.stream().map(Employee::getName).collect(Collectors.toList());
+        /*
+        here we have used map() method which will filter out only names as we have passed getName() function
+        of Employee class and then collected all the String values to list
+         */
     }
 
     public static class Employee {
