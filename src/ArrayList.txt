@@ -1,0 +1,19 @@
+There are three constructors basically we use for creating an ArrayList object in Java:
+
+1. ArrayList()
+2. ArrayList(int capacity) -> lets us specify the capacity of the ArrayList as a normal ArrayList is of size 10, so specifying capacity will let us resize the ArrayList
+3. ArrayList(Collection<? extends E> c) -> passing a type of collection in ArrayList
+
+ArrayList methods:
+1. set(int index, Object element) -> replaces or sets the element of the type Object at the index value
+2. get(int index) -> returns the Object at index value in an ArrayList
+3. size() -> returns the capacity or size of the ArrayList
+4. add(int index, Object element) -> adds the Object element at index value in the ArrayList
+5. toArray() -> returns Object[] of the Object class in the ArrayList
+toArray(new Object[arrayList.size()]) -> returns Object[] of the generic object in the ArrayList
+6. contains(Object element) -> returns boolean value if an instance of an object is present in the ArrayList
+
+NOTE: contains() method will return true only if our generic object class has equals() and hashCode() method present
+
+7. indexOf(Object element) -> returns the index value at which the instance of the Object element is present in the ArrayList
+8. remove(int index) -> removes the instance of the Object element present at index in the ArrayList

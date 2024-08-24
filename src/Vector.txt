@@ -1,0 +1,5 @@
+Vector is a thread safe ArrayList object which need not be synchronized in order to be used like ArrayList. Vector is part of Java before ArrayList which was release after two versions.
+
+NOTE: It is better to use Vector when we need synchronization but if we do not want synchronization of our code which is very likely to be the scenario then we can use ArrayList.
+
+All the methods which are present in ArrayList class implementation class are also present for Vector class but the only difference is that the methods in Vector class are synchronized.
