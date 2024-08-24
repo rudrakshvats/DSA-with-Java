@@ -1,0 +1,5 @@
+LinkedList is a type of Collection object in which each element is a type of node. Each Node contains two elements, first element is the
+Object itself and the second element points to next element. The first node of the LinkedList is the head of the LinkedList.
+
+If we have access to the head of the LinkedList then we can traverse it.
+If we have access to the head of the LinkedList then we can add and delete element because it is happened at the front of the LinkedList. The time complexity for both is O(1).
