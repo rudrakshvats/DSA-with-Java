@@ -3,3 +3,7 @@ Object itself and the second element points to next element. The first node of t
 
 If we have access to the head of the LinkedList then we can traverse it.
 If we have access to the head of the LinkedList then we can add and delete element because it is happened at the front of the LinkedList. The time complexity for both is O(1).
+
+Most of the operations are done on the front/head of the LinkedList.
+
+We can consider node object which contains two elements: one is data element which will hold data which can be any datatype or an object and the second element will be node itself.
