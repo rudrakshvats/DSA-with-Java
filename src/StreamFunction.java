@@ -9,6 +9,17 @@ public class StreamFunction {
         employees.add(new Employee("Vinay", 316818, "Accounts"));
         employees.add(new Employee("Shishupal", 310185, "IT"));
         employees.add(new Employee("Ramdev", 310186, "Fraud"));
+        List<String> itNames = employees.stream().filter(x -> x.department.equalsIgnoreCase("IT")).map(x -> x.name).collect(Collectors.toList());
+        /*
+        map() function here with extract out only those elements which we have passed as function inside the parenthesis, and then we collect it into List of that type generic type which we want to get as a List
+         */
+        System.out.println(itNames);
+        Map<String, Object> map = employees.stream().collect(Collectors.toMap(x -> x.name, x -> x.department));
+        /*
+        now to get the values of List of object into a map, then we can get all those values but in only id value pair as map only supports id value pair
+        Simply use Collectors.toMap() method and specify the id value pair by separating them by comma and catching the fields in a Map object
+         */
+        System.out.println(map);
         employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.toList())).entrySet().stream().forEach(x -> System.out.println(x.getKey() + " - " + x.getValue().size()));
         /*
         Now suppose we want to get only string parameters as a list like getting only names of employees then we can use the following tables
