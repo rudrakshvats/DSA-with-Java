@@ -1,0 +1,4 @@
+Open Close Responsibility has one role in programming: Class can be open for extension but closed for modification.
+
+What does this mean?
+It means if we have a DAO which contains one function saveInvoiceObjectToDatabase. Now since this class has one function then it is open for extension but modification of such classes can cause bugs. In order to prevent extension causing bugs we can convert our DAO file from class to an interface and make the method/function as abstract (without method body) and then create separate classes for the function like SaveToDatabase class and SaveToFile class. These classes can thus implement our DAO level function and without modification we are able to provide more functionality. The changes are present in body of the function not in DAO level function.
