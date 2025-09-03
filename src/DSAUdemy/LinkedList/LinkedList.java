@@ -40,4 +40,22 @@ public class LinkedList {
     public void getLength() {
         System.out.println("Length: " + length);
     }
+
+    public void append(int value) {
+        Node newNode = new Node(value);
+
+        // check if the LinkedList is empty or not, if the LinkedList is empty then head and tail will simply be the newNode which is going to be appended
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        }
+        // if the LinkedList is not empty then the tail of the LinkedList will now point to the newNode and then newNode will become the newNode
+        else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+
+        // since newNode is appended in both cases, length will always increase by 1
+        length += 1;
+    }
 }

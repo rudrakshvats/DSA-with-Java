@@ -8,5 +8,14 @@ public class Main {
         linkedList.getTail();
         linkedList.getLength();
         linkedList.printLinkedList();
+
+        linkedList.append(1);
+
+        // after append
+        System.out.println("After Append");
+        linkedList.getHead();
+        linkedList.getTail();
+        linkedList.getLength();
+        linkedList.printLinkedList();
     }
 }
