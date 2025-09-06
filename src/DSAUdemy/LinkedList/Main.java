@@ -11,8 +11,17 @@ public class Main {
 
         linkedList.append(1);
 
-        // after append
+        // for append
         System.out.println("After Append");
+        linkedList.getHead();
+        linkedList.getTail();
+        linkedList.getLength();
+        linkedList.printLinkedList();
+
+        linkedList.removeLast();
+
+        // for removeLast
+        System.out.println("After removeLast");
         linkedList.getHead();
         linkedList.getTail();
         linkedList.getLength();

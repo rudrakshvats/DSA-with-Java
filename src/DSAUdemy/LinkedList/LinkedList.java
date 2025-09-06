@@ -22,11 +22,13 @@ public class LinkedList {
     }
 
     public void printLinkedList() {
+        System.out.print("LinkedList{");
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.value);
+            System.out.print("[" + temp.value + ((temp.next == null) ? "]": "],"));
             temp = temp.next;
         }
+        System.out.println("}");
     }
 
     public void getHead() {
@@ -57,5 +59,31 @@ public class LinkedList {
 
         // since newNode is appended in both cases, length will always increase by 1
         length += 1;
+    }
+
+    public Node removeLast() {
+        if (length == 0) {
+            return null;
+        }
+        // now we are going to use two variables temp and pre which will be used to remove tail and assign new tail which is one Node before tail, since we are starting from first we will assign both variables to head node
+        Node temp = head;
+        Node pre = head;
+        // loop through the LinkedList till temp.next doesn't point to null
+        while (temp.next != null) {
+            // assign the pre Node to temp
+            pre = temp;
+            // assign the temp Node to next Node so that iteration continues
+            temp = temp.next;
+        }
+        // when we reach the end of the LinkedList i.e. when temp points to null
+        tail = pre;
+        tail.next = null;
+        length -= 1;
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+
+        return temp;
     }
 }
