@@ -49,13 +49,12 @@ public class LinkedList {
         // check if the LinkedList is empty or not, if the LinkedList is empty then head and tail will simply be the newNode which is going to be appended
         if (length == 0) {
             head = newNode;
-            tail = newNode;
         }
         // if the LinkedList is not empty then the tail of the LinkedList will now point to the newNode and then newNode will become the newNode
         else {
             tail.next = newNode;
-            tail = newNode;
         }
+        tail = newNode;
 
         // since newNode is appended in both cases, length will always increase by 1
         length += 1;
@@ -85,5 +84,22 @@ public class LinkedList {
         }
 
         return temp;
+    }
+
+    public void prepend(int value) {
+        // for prepending any Node to the LinkedList, first we will create a Node
+        Node node = new Node(value);
+        // check if LinkedList is empty or not, if yes then simply assign head and tail to the node value
+        if (length == 0) {
+            head = node;
+            tail = node;
+        }
+        // if the LinkedList is not empty, then we simply point node to head first, and then mark the node as head because now its taking position of head
+        else {
+            node.next = head;
+            head = node;
+        }
+        // since prepend operation increase the length of LinkedList by 1, then simply increment length value by 1
+        length += 1;
     }
 }

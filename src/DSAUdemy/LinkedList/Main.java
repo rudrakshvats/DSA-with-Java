@@ -4,27 +4,32 @@ package DSAUdemy.LinkedList;
 public class Main {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList(4);
-        linkedList.getHead();
-        linkedList.getTail();
-        linkedList.getLength();
-        linkedList.printLinkedList();
+        printDetails(linkedList);
 
         linkedList.append(1);
 
         // for append
-        System.out.println("After Append");
-        linkedList.getHead();
-        linkedList.getTail();
-        linkedList.getLength();
-        linkedList.printLinkedList();
+        System.out.println("After append: ");
+        printDetails(linkedList);
 
         linkedList.removeLast();
 
         // for removeLast
-        System.out.println("After removeLast");
+        System.out.println("After removeLast: ");
+        printDetails(linkedList);
+
+        linkedList.prepend(2);
+
+        // for prepend
+        System.out.println("After prepend: ");
+        printDetails(linkedList);
+    }
+
+    private static void printDetails(LinkedList linkedList) {
+        linkedList.printLinkedList();
         linkedList.getHead();
         linkedList.getTail();
         linkedList.getLength();
-        linkedList.printLinkedList();
+        System.out.println();
     }
 }
