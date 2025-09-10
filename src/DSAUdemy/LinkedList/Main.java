@@ -23,6 +23,12 @@ public class Main {
         // for prepend
         System.out.println("After prepend: ");
         printDetails(linkedList);
+
+        linkedList.removeFirst();
+
+        // for removeFirst
+        System.out.println("After removeFirst");
+        printDetails(linkedList);
     }
 
     private static void printDetails(LinkedList linkedList) {

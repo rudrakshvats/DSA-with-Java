@@ -102,4 +102,24 @@ public class LinkedList {
         // since prepend operation increase the length of LinkedList by 1, then simply increment length value by 1
         length += 1;
     }
+
+    public Node removeFirst() {
+        if (length == 0) {
+            return null;
+        }
+        // take a variable node which will be assigned to the head of the node
+        Node temp = head;
+        // the head will now be the second node which actually comes after head
+        head = head.next;
+        // since temp node needs to be remove, we will assign it the next value to be null
+        temp.next = null;
+        // decrement length by 1
+        length -= 1;
+        // if the linkedList was already of size 1 and now it became 0, we will assign tail value null
+        if (length == 0) {
+            tail = null;
+        }
+
+        return temp;
+    }
 }
