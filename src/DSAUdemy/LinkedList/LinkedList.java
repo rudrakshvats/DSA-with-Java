@@ -5,8 +5,8 @@ public class LinkedList {
     private Node tail;
     public int length;
 
-    class Node {
-        private int value;
+    static class Node {
+        public int value;
         private Node next;
 
         private Node(int value) {
@@ -118,6 +118,19 @@ public class LinkedList {
         // if the linkedList was already of size 1 and now it became 0, we will assign tail value null
         if (length == 0) {
             tail = null;
+        }
+
+        return temp;
+    }
+
+    public Node get(int index) {
+        // if any negative index or index greater than or equal to length of LinkedList then simply return null because there will be no Node at those index values
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        Node temp = head; // since we are starting from head then we will assign temp value of head
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
         }
 
         return temp;

@@ -27,8 +27,20 @@ public class Main {
         linkedList.removeFirst();
 
         // for removeFirst
-        System.out.println("After removeFirst");
+        System.out.println("After removeFirst: ");
         printDetails(linkedList);
+
+        System.out.println("Appending elements");
+        linkedList.append(1);
+        linkedList.append(2);
+        linkedList.append(3);
+        System.out.println("After append: ");
+        printDetails(linkedList);
+
+        LinkedList.Node node = linkedList.get(2);
+
+        // for get
+        System.out.println("Value at index: " + 2 + " is: " + node.value);
     }
 
     private static void printDetails(LinkedList linkedList) {
