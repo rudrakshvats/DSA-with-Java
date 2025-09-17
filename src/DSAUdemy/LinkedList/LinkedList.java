@@ -135,4 +135,14 @@ public class LinkedList {
 
         return temp;
     }
+
+    public boolean set(int index, int value) {
+        Node temp = get(index); // we will get Node where value needs to be set
+        // if temp is in range then simply set the value or else return false
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
 }

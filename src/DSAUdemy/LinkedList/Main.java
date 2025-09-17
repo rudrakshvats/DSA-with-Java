@@ -41,6 +41,13 @@ public class Main {
 
         // for get
         System.out.println("Value at index: " + 2 + " is: " + node.value);
+        System.out.println();
+
+        linkedList.set(2, 8);
+
+        // for set
+        System.out.println("After set: ");
+        printDetails(linkedList);
     }
 
     private static void printDetails(LinkedList linkedList) {
