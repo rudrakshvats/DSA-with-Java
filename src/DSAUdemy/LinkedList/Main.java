@@ -48,6 +48,10 @@ public class Main {
         // for set
         System.out.println("After set: ");
         printDetails(linkedList);
+
+        System.out.println("Inserting an element at index 2");
+        linkedList.insert(2, 7);
+        printDetails(linkedList);
     }
 
     private static void printDetails(LinkedList linkedList) {

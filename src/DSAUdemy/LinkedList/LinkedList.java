@@ -145,4 +145,21 @@ public class LinkedList {
         }
         return false;
     }
+
+    public boolean insert(int index, int value) {
+        if (index < length) { // if index is less than head index then simply prepend
+            prepend(value);
+            return true;
+        }
+        if (index == length) { // if index is more than tail index then simply append
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1); // since newNode will be inserted at some point, we would require Node at index - 1 because it will point to the newNode to be inserted
+        newNode.next = temp.next; // the newNode which is going to be inserted will now also point to the temp node
+        temp.next = newNode; // temp node will now point to the newNode, so it will be inserted
+        length += 1;
+        return true;
+    }
 }
