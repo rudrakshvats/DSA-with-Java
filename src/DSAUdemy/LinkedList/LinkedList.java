@@ -147,7 +147,10 @@ public class LinkedList {
     }
 
     public boolean insert(int index, int value) {
-        if (index < 0) { // if index is less than head index then simply prepend
+        if (index < 0 || index > length) {
+            return false;
+        }
+        if (index == 0) { // if index is less than head index then simply prepend
             prepend(value);
             return true;
         }
