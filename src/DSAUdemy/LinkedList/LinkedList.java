@@ -165,4 +165,22 @@ public class LinkedList {
         length += 1;
         return true;
     }
+
+    public Node remove(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+        if (index == 0) { // if index is equal to 0 then simply use removeFirst() because that method simply does removal at index 0 and returns a Node
+            removeFirst();
+        }
+        if (index == length - 1) { // if index is equal to length - 1 then simply use removeLast() because that method simply removes at index length - 1 and returns a Node
+            removeLast();
+        }
+        Node previous = get(index - 1); // we will need one Node which is present at index - 1
+        Node temp = previous.next; // then we can get the Node which is going to be removed by next method on previous Node in last step
+        previous.next = temp.next; // simply point temp.next to previous.next because previous should now point to the Node which is after temp
+        temp.next = null; // then point next of temp to null because now temp needs to be removed
+        length -= 1;
+        return temp;
+    }
 }

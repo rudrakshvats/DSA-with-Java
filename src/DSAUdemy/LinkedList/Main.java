@@ -52,6 +52,11 @@ public class Main {
         System.out.println("Inserting an element at index 2");
         linkedList.insert(2, 7);
         printDetails(linkedList);
+
+        System.out.println("Removing an element at index 2");
+        System.out.println("After remove: ");
+        linkedList.remove(2);
+        printDetails(linkedList);
     }
 
     private static void printDetails(LinkedList linkedList) {
