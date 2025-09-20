@@ -57,6 +57,11 @@ public class Main {
         System.out.println("After remove: ");
         linkedList.remove(2);
         printDetails(linkedList);
+
+        System.out.println("Reversing Linked List");
+        linkedList.reverse();
+        System.out.println("After reverse: ");
+        printDetails(linkedList);
     }
 
     private static void printDetails(LinkedList linkedList) {

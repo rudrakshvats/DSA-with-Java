@@ -217,4 +217,26 @@ public class LinkedList {
         length -= 1;
         return temp;
     }
+
+    public void reverse() {
+        if (length > 0) {
+            // simply swap head and tail using a third Nod temp
+            Node temp = head;
+            head = tail;
+            tail = temp;
+            // create two extra nodes for iteration and reversing
+            Node after;
+            Node before = null; // this node act Node which is null i.e. after tail Node
+            for (int i = 0; i < length; i++) {
+                // after will be the node which is just after temp
+                after = temp.next;
+                // temp now needs to point reverse because LinkedList needs to be reversed
+                temp.next = before;
+                // then before needs to be iterated further in order for traversal
+                before = temp;
+                // for traversing temp further we will make it equal to after Node
+                temp = after;
+            }
+        }
+    }
 }
