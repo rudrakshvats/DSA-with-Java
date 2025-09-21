@@ -62,6 +62,12 @@ public class Main {
         linkedList.reverse();
         System.out.println("After reverse: ");
         printDetails(linkedList);
+
+        linkedList.printLinkedList();
+        System.out.println("Middle node of LinkedList: " + linkedList.findMiddleNode().value);
+        linkedList.append(6);
+        linkedList.printLinkedList();
+        System.out.println("After append, Middle node of LinkedList: " + linkedList.findMiddleNode().value);
     }
 
     private static void printDetails(LinkedList linkedList) {
