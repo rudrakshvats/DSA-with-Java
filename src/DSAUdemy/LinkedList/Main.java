@@ -68,6 +68,9 @@ public class Main {
         linkedList.append(6);
         linkedList.printLinkedList();
         System.out.println("After append, Middle node of LinkedList: " + linkedList.findMiddleNode().value);
+
+        linkedList.printLinkedList();
+        System.out.println("Does LinkedList has loop?: " + (linkedList.hasLoop() ? "Yes" : "No"));
     }
 
     private static void printDetails(LinkedList linkedList) {
