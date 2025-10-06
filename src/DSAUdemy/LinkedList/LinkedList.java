@@ -220,7 +220,7 @@ public class LinkedList {
 
     public void reverse() {
         if (length > 0) {
-            // simply swap head and tail using a third Nod temp
+            // simply swap head and tail using a third Node temp
             Node temp = head;
             head = tail;
             tail = temp;
@@ -290,5 +290,33 @@ public class LinkedList {
         }
 
         return false;
+    }
+
+    /*
+    This algorithm is also solved by two pointer method of slow and fast node, but in some problems like below we don't have to move fast by 2 nodes,
+    in this problem we first move fast single time only, so we have to think for solution based on how to use pointers from starting point till end of
+    LinkedList
+     */
+    public Node findKthFromEnd(int k) {
+        if (k <= 0) {
+            return null;
+        }
+        Node slow = head;
+        Node fast = head;
+        int i = 0;
+        while (i < k) {
+            if (fast == null) {
+                return null;
+            }
+            fast = fast.next;
+            i += 1;
+        }
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+
+        return slow;
     }
 }

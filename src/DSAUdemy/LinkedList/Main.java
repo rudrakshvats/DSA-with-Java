@@ -71,6 +71,9 @@ public class Main {
 
         linkedList.printLinkedList();
         System.out.println("Does LinkedList has loop?: " + (linkedList.hasLoop() ? "Yes" : "No"));
+
+        linkedList.printLinkedList();
+        System.out.println("2nd last node from end is: " + linkedList.findKthFromEnd(2).value);
     }
 
     private static void printDetails(LinkedList linkedList) {
