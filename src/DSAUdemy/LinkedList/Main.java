@@ -74,6 +74,15 @@ public class Main {
 
         linkedList.printLinkedList();
         System.out.println("2nd last node from end is: " + linkedList.findKthFromEnd(2).value);
+
+        linkedList.append(4);
+        linkedList.printLinkedList();
+        System.out.println("Removing duplicates");
+        linkedList.removeDuplicates();
+        System.out.println("After removing duplicates: ");
+        linkedList.printLinkedList();
+
+        System.out.println("Binary To Decimal for LinkedList is: " + linkedList.binaryToDecimal());
     }
 
     private static void printDetails(LinkedList linkedList) {

@@ -319,4 +319,49 @@ public class LinkedList {
 
         return slow;
     }
+
+    /*
+    Remove Duplicates from LinkedList
+     */
+
+    public void removeDuplicates() {
+        Node current = head; // take current node which will be assigned to the head node
+        while (current != null) { // we will check if the current node is not null and run loop until it reaches the tail of the linked list
+            Node runner = current; // next we will take runner node which will also be assigned to the current node
+            while (runner.next != null) { // we will run a loop to traverse runner node from current node to tail node
+                if (runner.next.value == current.value) { // check if the runner node's next value is equal to the current node's value
+                    runner.next = runner.next.next; // we will assign the runner node's next node to the next to next node value so that we can remove the next node
+                    length -= 1; // simply decrement the length of the LinkedList by 1
+                } else {
+                    runner = runner.next; // otherwise move to the next node
+                }
+            }
+            current = current.next; // after loop is completed, assign current node to its next node
+        }
+    }
+
+
+    /*
+    Binary to Decimal
+     */
+    public int binaryToDecimal() {
+        if (head == null) {
+            return 0;
+        }
+        if (head.next == null) {
+            if (head.value == 0) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+        Node current = head;
+        int num = 0;
+        while (current != null) {
+            num = num * 2 + current.value;
+            current = current.next;
+        }
+
+        return num;
+    }
 }
