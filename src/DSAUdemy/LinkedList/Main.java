@@ -83,6 +83,10 @@ public class Main {
         linkedList.printLinkedList();
 
         System.out.println("Binary To Decimal for LinkedList is: " + linkedList.binaryToDecimal());
+
+        linkedList.partitionList(4);
+        System.out.println("Partition List: ");
+        linkedList.printLinkedList();
     }
 
     private static void printDetails(LinkedList linkedList) {

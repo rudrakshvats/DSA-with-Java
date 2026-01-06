@@ -364,4 +364,37 @@ public class LinkedList {
 
         return num;
     }
+
+    /*
+    Partition List
+     */
+    public void partitionList(int x) { // LinkedList{[3],[8],[1],[4],[6]}
+        if (null == head) {
+            return;
+        }
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+        Node prev1 = dummy1;
+        Node prev2 = dummy2;
+        Node current = head;
+        String l1 = "";
+        String l2 = "";
+        while (null != current) {
+            if (x < current.value) {
+                l1 = l1 + current.value + " -> ";
+                System.out.println(l1);
+                prev1.next = current;
+                prev1 = current;
+            } else {
+                l2 = l2 + current.value + " -> ";
+                System.out.println(l2);
+                prev2.next = current;
+                prev2 = current;
+            }
+            current = current.next;
+        }
+        prev2.next = null;
+        prev1.next = dummy2.next;
+        head = dummy1.next;
+    }
 }
