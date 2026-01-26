@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class SingleNumber {
 
@@ -21,6 +18,7 @@ public class SingleNumber {
             System.out.println(0);
         } else {
             System.out.println(checkRepeat(nums));
+            System.out.println(checkRepeatUsingSet(nums));
         }
     }
 
@@ -41,5 +39,19 @@ public class SingleNumber {
         }
 
         return 0;
+    }
+
+    // using Set Interface
+    private static int checkRepeatUsingSet(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num)) {
+                set.remove(num);
+            } else {
+                set.add(num);
+            }
+        }
+
+        return set.stream().findFirst().get();
     }
 }
