@@ -87,6 +87,9 @@ public class Main {
         linkedList.partitionList(4);
         System.out.println("Partition List: ");
         linkedList.printLinkedList();
+
+        linkedList.reverseBetween(8, 6);
+        linkedList.printLinkedList();
     }
 
     private static void printDetails(LinkedList linkedList) {

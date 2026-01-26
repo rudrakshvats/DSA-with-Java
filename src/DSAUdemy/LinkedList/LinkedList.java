@@ -377,17 +377,11 @@ public class LinkedList {
         Node prev1 = dummy1;
         Node prev2 = dummy2;
         Node current = head;
-        String l1 = "";
-        String l2 = "";
         while (null != current) {
-            if (x < current.value) {
-                l1 = l1 + current.value + " -> ";
-                System.out.println(l1);
+            if (x > current.value) {
                 prev1.next = current;
                 prev1 = current;
             } else {
-                l2 = l2 + current.value + " -> ";
-                System.out.println(l2);
                 prev2.next = current;
                 prev2 = current;
             }
@@ -396,5 +390,46 @@ public class LinkedList {
         prev2.next = null;
         prev1.next = dummy2.next;
         head = dummy1.next;
+    }
+
+    /*
+    Reverse Between
+     */
+    public void reverseBetween(int m, int n) { // 1(head 0) -> 2(m 1) -> 3 (2) -> 4(n 3) -> 5 (4)
+        if (null == head) {
+            return;
+        }
+        if (null == head.next) {
+            return;
+        }
+        Node current = head;
+        Node prev1 = head;
+        Node prev2 = head;
+        Node firstNode = new Node (0);
+        Node secondNode = new Node(0);
+        while (null != current) {
+            prev1 = current;
+            if (current.next.value == m) {
+                firstNode = current.next;
+                break;
+            }
+            current = current.next;
+        }
+        current = head;
+        while (null != current) {
+            prev2 = current;
+            if (current.next.value == n) {
+                secondNode = current.next;
+                break;
+            }
+            current = current.next;
+        }
+
+        Node temp = firstNode.next;
+        firstNode.next = secondNode.next;
+        secondNode.next = temp;
+
+        prev1.next = secondNode;
+        prev2.next = firstNode;
     }
 }
