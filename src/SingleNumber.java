@@ -19,9 +19,20 @@ public class SingleNumber {
         } else {
             System.out.println(checkRepeat(nums));
             System.out.println(checkRepeatUsingSet(nums));
+            System.out.println(checkRepeatUsingBitwiseXOROperation(nums));
         }
     }
 
+    private static int checkRepeatUsingBitwiseXOROperation(int[] nums) {
+        int singleNumber = 0; // for getting result we keep the value 0 for +ve value
+        for (int num: nums) {
+            singleNumber = singleNumber ^ num;
+        }
+
+        return singleNumber;
+    }
+
+    // TC: O(n^2), SC: O(n)
     private static int checkRepeat(int[] nums) {
         for (int i: nums) {
             int repeatCount = -1;
@@ -41,7 +52,7 @@ public class SingleNumber {
         return 0;
     }
 
-    // using Set Interface
+    // using Set Interface, TC: O(n), SC: O(n)
     private static int checkRepeatUsingSet(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
@@ -54,4 +65,8 @@ public class SingleNumber {
 
         return set.stream().findFirst().get();
     }
+
+    // using bitwise XOR operation, TC: O(n), SC: O(1)
+
+
 }
