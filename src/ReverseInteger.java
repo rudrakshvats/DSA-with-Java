@@ -32,4 +32,7 @@ public class ReverseInteger {
 
         return reverse;
     }
+
+    // TC: O(log10 x) because we are dividing x by 10 in loop
+    // SC: O(1) because we are using three variables only min, max and reverse
 }
