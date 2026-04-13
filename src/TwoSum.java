@@ -10,6 +10,7 @@ public class TwoSum {
     }
 
     // we will use two pointer method which is linear time complex
+    // for using two pointer methods, we make sure the array is sorted in ascending or descending order
     public static boolean twoSum(int[] arr, int target) {
         int leftPointer = 0;
         int rightPointer = arr.length - 1;
