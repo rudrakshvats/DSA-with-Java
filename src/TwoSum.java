@@ -15,11 +15,12 @@ public class TwoSum {
         int rightPointer = arr.length - 1;
 
         while (leftPointer < rightPointer) {
-            if (arr[leftPointer] + arr[rightPointer] == target) {
+            int sum = arr[leftPointer] + arr[rightPointer];
+            if (sum == target) {
                 return true;
-            } else if (arr[leftPointer] + arr[rightPointer] < target) {
+            } else if (sum < target) {
                 leftPointer += 1;
-            } else if (arr[leftPointer] + arr[rightPointer] > target){
+            } else {
                 rightPointer -= 1;
             }
         }
