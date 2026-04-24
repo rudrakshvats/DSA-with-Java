@@ -23,7 +23,7 @@ public class BinarySearch {
         return -1;
     }
 
-    // TC --> O(N)
+    // TC --> O(logN)
     // SC --> O(1)
 }
 

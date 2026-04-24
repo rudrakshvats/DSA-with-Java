@@ -17,11 +17,12 @@ import java.util.*;
 public class SecondLargestElementInArray {
     public static void main(String[] args) {
 
-        Integer[] intArray = {12, 35, 1, 10, 34, 1};
+        Integer[] intArray = {10, 5, 10};
         Integer[] secondIntArray = {10, 5, 10};
         findSecondLargestElement(intArray);
         findSecondLargestElement(secondIntArray);
-
+        int[] arr = {10, 5, 10};
+        getSecondLargest(arr);
     }
 
     private static void findSecondLargestElement(Integer[] intArray) {
@@ -30,5 +31,19 @@ public class SecondLargestElementInArray {
         integerSet.remove(largestElement);
 
         System.out.println("The second largest element is " + Collections.max(integerSet));
+    }
+
+    public static int getSecondLargest(int[] arr) {
+        // code here
+        Arrays.sort(arr);
+        int largest = arr[arr.length - 1];
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] < largest) {
+                System.out.println(arr[i]);
+                return arr[i];
+            }
+        }
+
+        return -1;
     }
 }
