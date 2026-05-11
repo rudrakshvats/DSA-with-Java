@@ -17,9 +17,7 @@ public class BoatsToSavePeople {
         int count = 0;
 
         while (left <= right) {
-            int totalWeight = people[left] + people[right];
-
-            if (totalWeight <= limit) {
+            if (people[left] + people[right] <= limit) {
                 left += 1;
             }
             right -= 1;
