@@ -13,7 +13,7 @@ public class ContainerWithMostWater {
 
         int resultArea = 0;
         while (left < right) {
-            int area = 0;
+            int area;
             int width = right - left;
             // check if height at left is greater than equal to height at right, if yes that we will length
             if (height[left] >= height[right]) {
