@@ -8,7 +8,7 @@ public class GroupAnagrams {
         System.out.println(groupAnagrams(strs));
     }
 
-    public static List<List<String>> groupAnagrams(String[] strs) {
+    /*public static List<List<String>> groupAnagrams(String[] strs) {
         // for the result, we need to create a similar arraylist
         List<List<String>> result = new ArrayList<>();
 
@@ -44,6 +44,31 @@ public class GroupAnagrams {
         map.forEach((x, y) -> {
             result.add(y);
         });
+
+        return result;
+    }*/
+
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> result = new ArrayList<>();
+
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String str: strs) {
+            int[] array = new int[26];
+            for (int i = 0; i < str.length(); i++) {
+                char ch = str.charAt(i);
+                array[ch - 'a']++;
+            }
+            StringBuilder key = new StringBuilder();
+            for (int j : array) key.append(j).append("#");
+            List<String> value = map.getOrDefault(key.toString(), new ArrayList<>());
+            if (value.isEmpty()) {
+                value.add(str);
+                map.put(key.toString(), value);
+            } else value.add(str);
+        }
+
+        map.forEach((x, y) -> result.add(y));
 
         return result;
     }
