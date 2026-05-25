@@ -1,19 +1,24 @@
 package LeetCode;
 
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TopKFrequentElements {
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 1, 2, 2, 3};
+        int k = 2;
+        System.out.println(Arrays.toString(topKFrequent(nums, 2)));
+    }
 
-    public int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent(int[] nums, int k) {
         // we will use hashmap to track frequency of frequent elements
         Map<Integer, Integer> map = new HashMap<>();
 
         // using this loop we will map key (element of array) with values (frequency of element)
-        for (int i: nums) {
+        for (int i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
 
