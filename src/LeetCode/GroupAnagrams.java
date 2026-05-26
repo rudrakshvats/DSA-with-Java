@@ -62,7 +62,7 @@ public class GroupAnagrams {
 
             List<String> value = map.getOrDefault(key.toString(), new ArrayList<>());
 
-            if (map.containsKey(key.toString())) {
+            if (!value.isEmpty()) {
                 value.add(str);
             } else {
                 value.add(str);
