@@ -55,17 +55,19 @@ public class GroupAnagrams {
 
         for (String str: strs) {
             int[] array = new int[26];
-            for (int i = 0; i < str.length(); i++) {
-                char ch = str.charAt(i);
-                array[ch - 'a']++;
-            }
+            for (char c: str.toCharArray()) array[c - 'a']++;
+
             StringBuilder key = new StringBuilder();
-            for (int j : array) key.append(j).append("#");
+            for (int i: array) key.append(i).append("#");
+
             List<String> value = map.getOrDefault(key.toString(), new ArrayList<>());
-            if (value.isEmpty()) {
+
+            if (!value.isEmpty()) {
+                value.add(str);
+            } else {
                 value.add(str);
                 map.put(key.toString(), value);
-            } else value.add(str);
+            }
         }
 
         map.forEach((x, y) -> result.add(y));
