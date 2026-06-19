@@ -1,6 +1,8 @@
 package LeetCode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BinaryTreeLevelOrderTraversal {
@@ -58,8 +60,35 @@ public class BinaryTreeLevelOrderTraversal {
 
             return result;
         }
-    }
 
-    // TC: O(n)
-    // SC: O(h); where h is height of tree
+        // TC: O(n)
+        // SC: O(h); where h is height of tree
+
+        private List<List<Integer>> bfsMethod(TreeNode root) {
+            List<List<Integer>> result = new ArrayList<>();
+
+            if (null == root) return result;
+
+            Deque<TreeNode> deque = new LinkedList<>();
+            deque.offer(root);
+
+            int currentLevel = 0;
+            while (!deque.isEmpty()) {
+                int length = deque.size();
+                result.add(new ArrayList<>());
+
+                for (int i = 0; i < length; i++) {
+                    TreeNode node = deque.poll();
+                    result.get(currentLevel).add(node.val);
+
+                    if (null != node.left) deque.offer(node.left);
+                    if (null != node.right) deque.offer(node.right);
+                }
+
+                currentLevel += 1;
+            }
+
+            return result;
+        }
+    }
 }
