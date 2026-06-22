@@ -18,11 +18,11 @@ public class DailyTemperatures {
         // for this problem we will use ArrayDeque/Stack
         Deque<Integer> deque = new ArrayDeque<>();
 
-        // run a loop to traverse from i = 0 to i = temperatures.length + 1
+        // run a loop to traverse from i = 0 to i = temperatures.length - 1
         for (int i = 0; i < temperatures.length; i++) {
             // this loop will check if the deque contains any index for which the temperatures at i is warmer or more
             // if yes then we will take the deque's top as previousIndex for which will update the result array's same
-            // index with subtraction of i and previousIndex and then finally popping deque's top
+            // index with difference of i and previousIndex and then finally popping deque's top
             // suppose for 30, 60, 90, for first iteration we will simply push 0 as first element in deque so
             // deque = [0]
             // next for second iteration, we will check if deque is not empty, so we will check is 60 > 30, yes it is
@@ -31,7 +31,7 @@ public class DailyTemperatures {
             // deque = [] --- result = [1]
             // for next loop, deque is empty so we will push i to deque
             // deque = [1]
-            // next for third and final iteration, we will check if deque is not empty, so we will check 90 < 60, yes it
+            // next for third and final iteration, we will check if deque is not empty, so we will check 90 > 60, yes it
             // is greater, so we will take out 1 index from deque using peek() and then update result[1] = 2 - 1 = 1
             // then we will do pop()
             // deque = [] --- result = [1, 1]
@@ -45,7 +45,8 @@ public class DailyTemperatures {
                 deque.pop();
             }
 
-            // after that we will push i to deque
+            // for first iteration deque will always be empty, so we will push the i = 0, then once the previous
+            // while loop is complete then also we will push the index i to deque
             deque.push(i);
         }
 
