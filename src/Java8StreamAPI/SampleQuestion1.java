@@ -71,4 +71,8 @@ class Employee {
     public String getDepartment() {
         return department;
     }
+
+    public String getName() {
+        return name;
+    }
 }
