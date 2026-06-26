@@ -63,4 +63,12 @@ class Employee {
         return "Employee [id = " + id + ", name = " + name + ", department = " + department + ", salary = " + salary +
                 "]";
     }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
 }
